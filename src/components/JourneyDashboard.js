@@ -1,11 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
-import { Button } from 'semantic-ui-react'
+import { Link } from 'react-router-dom';
+import JourneyList from './JourneyList';
 
 const JourneyDashboard = () => (
     <div>
-        <h1>JourneyDashboard</h1>
-        <Button positive as={Link} to="/journeycreate">+ New Joureny</Button>
+        <div>
+            <Link to='/create'><button>+New Journey</button></Link>
+        </div>
+        <div>
+            <JourneyList />
+        </div>
     </div>
 )
 
