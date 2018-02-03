@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import moment from 'moment';
 import { Card, Icon, Image } from 'semantic-ui-react';
 
-const JourneyListItem = ({ title, startDate, endDate, note }) => (
+const JourneyListItem = ({ jourID, title, startDate, endDate, note }) => (
     <Card.Group>
         <Card>
-            <Card.Content>
+            <Card.Content as={Link} to={`/edit/${jourID}`}>
                 <Image src='../../images/nzflag.png' />
                 <Card.Header>
                     {title}

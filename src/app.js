@@ -11,8 +11,8 @@ import { addJourney } from './actions/journies';
 
 const store = configStore();
 
-// store.dispatch(addJourney({ title: 'Euro', note:'Trip'}));
-// store.dispatch(addJourney({ title: 'Asia', note: 'Family'}));
+store.dispatch(addJourney({ jourID: '12345', title: 'NZ Summer Vacation', note:'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', startDate: 1517871600000, endDate: 1519340400000}));
+store.dispatch(addJourney({ jourID: '67890', title: 'Asia', note: 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.', startDate: 1518735600000, endDate: 1519686000000}));
 
 // let hasRendered = false;
 // const renderApp = () => {

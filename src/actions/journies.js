@@ -4,7 +4,7 @@ export const addJourney = (journey) => ({
     journey
 });
 
-export const editJourney = ({ jourID, updates }) => ({
+export const editJourney = (jourID, updates) => ({
     type: 'EDIT_JOURNEY',
     jourID,
     updates

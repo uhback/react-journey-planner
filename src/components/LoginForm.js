@@ -20,7 +20,6 @@ export default class LoginForm extends React.Component {
             userAccount: this.state.userAccount,
             password: this.state.password
         })
-        console.log(this.state);
     }
     render() {
         return (
@@ -31,6 +30,7 @@ export default class LoginForm extends React.Component {
                         placeholder="ID"
                         value={this.state.userAccount}
                         onChange={this.onUserAccountChange}
+                        autoFocus
                     />
                     <input
                         type="password"

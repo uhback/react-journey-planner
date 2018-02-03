@@ -5,14 +5,19 @@ import uuid from 'uuid';
 import 'react-dates/lib/css/_datepicker.css';
 
 export default class JourneyForm extends React.Component {
-    state = {
-        jourID: uuid(),
-        title: '',
-        note: '',
-        startDate: moment(),
-        endDate: moment(),
-        focusedInput: null,
+    constructor(props){
+        super(props);
+        this.state = {
+            jourID: props.journey ? props.journey.jourID : uuid(),
+            title: props.journey ? props.journey.title : '',
+            note: props.journey ? props.journey.note : '',
+            startDate: props.journey ? moment(props.journey.startDate) : moment(),
+            endDate: props.journey ? moment(props.journey.endDate) : moment(),
+            focusedInput: null,
+            error: ''
+        }
     }
+
 
     onTitleChange = (e) => {
         const title = e.target.value;

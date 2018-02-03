@@ -7,7 +7,6 @@ import { startLogin } from '../actions/auth';
 class LoginPage extends React.Component {
     onSubmit = (auth) => {
         this.props.startLogin(auth)
-        //this.props.history.push('/dashboard');
     }
     render() {
         return (
