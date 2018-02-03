@@ -69,7 +69,7 @@ export default class JourneyForm extends React.Component {
                         value={this.state.note}
                         onChange={this.onNoteChange}
                     />
-                    <button>add journey</button>
+                    <button>Save</button>
                 </form>
             </div>
         )

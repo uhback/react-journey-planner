@@ -1,15 +1,21 @@
 import React, { Component }from 'react';
+import { connect } from 'react-redux';
 import { NavLink, Link } from 'react-router-dom';
 import { Header, Icon, Menu, Segment } from 'semantic-ui-react'
+import { startLogout } from '../actions/auth';
 
 class JourneyHeader extends React.Component {
-    state = { activeItem: 'Dashboard' }
+    state = { activeItem: '' }
 
-    handleItemClick = (e, { name }) => this.setState({ activeItem: name })
-  
+    // Can't update the state issue..
+    handleItemClick = (e, { name }) => this.setState({ activeItem: name }, () => console.log(this.state.value))
+    
+    onClickLogout = () => {
+      this.props.startLogout();
+    }
+
     render() {
       const { activeItem } = this.state
-  
       return (
         <div>
             <Header as='h1' icon textAlign='center' color='black'>
@@ -22,11 +28,11 @@ class JourneyHeader extends React.Component {
               </Header.Subheader>
             </Header>
           <Menu pointing secondary>
-            <Menu.Item name='Dashboard' as={Link} to={'/'} active={activeItem === 'Dashboard'} onClick={this.handleItemClick} />
-            <Menu.Item name='Share Journey' as={Link} to={'/shareboard'} active={activeItem === 'Share Journey'} onClick={this.handleItemClick} />
-            <Menu.Item name='Contact' as={Link} to={'/contact'} active={activeItem === 'Contact'} onClick={this.handleItemClick} />
+            <Menu.Item name='Dashboard' as={NavLink} exact to={'/dashboard'} active={activeItem === 'Dashboard'} onClick={this.handleItemClick} />
+            <Menu.Item name='ShareJourney' as={NavLink} exact to={'/shareboard'} active={activeItem === 'ShareJourney'} onClick={this.handleItemClick} />
+            <Menu.Item name='Contact' as={NavLink} exact to={'/contact'} active={activeItem === 'Contact'} onClick={this.handleItemClick} />
             <Menu.Menu position='right'>
-            <Menu.Item name='Logout' active={activeItem === 'Logout'} onClick={this.handleItemClick} />
+              <Menu.Item name='Logout' onClick={this.onClickLogout} />
             </Menu.Menu>
           </Menu>
         </div>
@@ -34,7 +40,11 @@ class JourneyHeader extends React.Component {
     }
 }
 
-export default JourneyHeader;
+const mapDispatchToProps = (dispatch) => ({
+  startLogout: () => dispatch(startLogout())
+})
+
+export default connect(undefined, mapDispatchToProps)(JourneyHeader);
 
 // (<header>
 //   <h1>Journey Planner!</h1>

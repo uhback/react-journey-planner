@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
+import createHistory from 'history/createBrowserHistory'
 
 import JourneyHeader from '../components/JourneyHeader';
 import JourneyDashboard from '../components/JourneyDashboard';
@@ -7,20 +8,27 @@ import JourneyShareboard from '../components/JourneyShareboard';
 import Contact from '../components/Contact';
 import NotfountPage from '../components/NotfoundPage';
 import AddJourneyPage from '../components/AddJourneyPage';
+import LoginPage from '../components/LoginPage';
+import PrivateRoute from './PrivateRouter';
+import PublicRoute from './PublicRouter';
+import EditJourneyPage from '../components/EditJourneyPage';
+
+export const history = createHistory(); // createBrowserHistory
 
 const AppRouter = () => (
-    <BrowserRouter>
+    <Router history={history}>
         <div>
-            <JourneyHeader />
             <Switch>
-                <Route path="/" component={JourneyDashboard} exact={true}/>
-                <Route path="/shareboard" component={JourneyShareboard} />
-                <Route path="/contact" component={Contact} />
-                <Route path="/create" component={AddJourneyPage} />
+                <PublicRoute path="/" component={LoginPage} exact={true}/>
+                <PrivateRoute path="/dashboard" component={JourneyDashboard} />
+                <PrivateRoute path="/shareboard" component={JourneyShareboard} />
+                <PrivateRoute path="/contact" component={Contact} />
+                <PrivateRoute path="/create" component={AddJourneyPage} />
+                <PrivateRoute path="/edit/:id" component={EditJourneyPage} />
                 <Route component={NotfountPage} />
             </Switch>
         </div>
-    </BrowserRouter>
+    </Router>
 );
 
 export default AppRouter;
