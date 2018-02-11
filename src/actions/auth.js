@@ -1,10 +1,5 @@
-
-// export const logout = () => {
-//     type: 'LOGOUT'
-// }
-
 import axios from 'axios';
-const ROOT_URL = "http://localhost:14655";
+const ROOT_URL = "http://localhost:1813";
 
 export const login = (uid) => ({
     type: 'LOGIN',

@@ -1,18 +1,20 @@
 import React, { Compoent } from 'react';
+import { connect } from 'react-redux';
 import moment from 'moment';
 import { SingleDatePicker, DateRangePicker } from 'react-dates';
-import uuid from 'uuid';
+//import uuid from 'uuid';
 import 'react-dates/lib/css/_datepicker.css';
 
-export default class JourneyForm extends React.Component {
+class JourneyForm extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            jourID: props.journey ? props.journey.jourID : uuid(),
-            title: props.journey ? props.journey.title : '',
-            note: props.journey ? props.journey.note : '',
-            startDate: props.journey ? moment(props.journey.startDate) : moment(),
-            endDate: props.journey ? moment(props.journey.endDate) : moment(),
+            Title: props.journey ? props.journey.Title : '',
+            Note: props.journey ? props.journey.Note : '',
+            StartDate: props.journey ? moment(props.journey.StartDate) : moment(),
+            EndDate: props.journey ? moment(props.journey.EndDate) : moment(),
+            UserID: props.auth ? props.auth.uid : '',
+            State: 'A',
             focusedInput: null,
             error: ''
         }
@@ -37,12 +39,13 @@ export default class JourneyForm extends React.Component {
             this.setState(() => ({ error: 'Please fill the all blanks'}));
         } else {
             this.setState(() => ({ error: '' }));
-            this.props.onSubmit({
-                jourID: this.state.jourID,
-                title: this.state.title,
-                startDate: this.state.startDate.valueOf(), //UNIX TIMESTAMP
-                endDate: this.state.endDate.valueOf(),
-                note: this.state.note
+            this.props.onSubmit({                
+                Title: this.state.Title,
+                StartDate: this.state.StartDate.format('YYYY-MM-DD'),
+                EndDate: this.state.EndDate.format('YYYY-MM-DD'),
+                UserID: this.state.UserID,
+                State: this.state.State,           
+                Note: this.state.Note
             })
         }
     }
@@ -56,14 +59,14 @@ export default class JourneyForm extends React.Component {
                         type="text" 
                         placeholder="Title" 
                         autoFocus 
-                        value={this.state.title} 
+                        value={this.state.Title} 
                         onChange={this.onTitleChange}
                     />
                     <DateRangePicker
-                        startDate={this.state.startDate}
-                        startDateId="startDate"
-                        endDate={this.state.endDate}
-                        endDateId="endDate"
+                        startDate={this.state.StartDate}
+                        startDateId="StartDate"
+                        endDate={this.state.EndDate}
+                        endDateId="EndDate"
                         onDatesChange={this.onDatesChange}
                         focusedInput={this.state.focusedInput}
                         onFocusChange={focusedInput => this.setState({ focusedInput })}
@@ -71,7 +74,7 @@ export default class JourneyForm extends React.Component {
                     />
                     <textarea
                         placeholder="Add a note for your journey (optional)"
-                        value={this.state.note}
+                        value={this.state.Note}
                         onChange={this.onNoteChange}
                     />
                     <button>Save</button>
@@ -80,3 +83,11 @@ export default class JourneyForm extends React.Component {
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        auth: state.auth
+    }
+}
+
+export default connect(mapStateToProps)(JourneyForm)

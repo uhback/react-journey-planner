@@ -15,6 +15,8 @@ export default (state = journeyReducerDefaultState, action) => {
                     return journey;
                 }
             })
+        case 'SET_MY_JOURNEY':
+            return action.journies;
         default:
             return state;
     }

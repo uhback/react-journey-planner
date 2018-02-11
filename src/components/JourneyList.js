@@ -6,14 +6,15 @@ const JourneyList = (props) => (
     <div>
         <h1>Journey List</h1>
         {props.journies.map((journey) => (
-            <JourneyListItem {...journey} key={journey.jourID} />
+            <JourneyListItem {...journey} key={journey.JourId} />
         ))}
     </div>
 )
 
 const mapStateToProps = (state) => {
     return {
-        journies: state.journies
+        journies: state.journies,
+        auth: state.auth
     }
 }
 

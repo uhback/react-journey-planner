@@ -5,10 +5,10 @@ import { editJourney } from '../actions/journies';
 
 class EditJourneyPage extends React.Component {
     onSubmit = (journey) => {
-        this.props.dispatch(editJourney(journey.jourID, journey));
-        this.props.history.push('/dashboard');
+        this.props.dispatch(editJourney(journey.JourId, journey));
+        this.props.history.push('/');
     }
-
+    
     render () {
         return (
             <div>
@@ -25,7 +25,10 @@ class EditJourneyPage extends React.Component {
 const mapStateToProps = (state, props) => {
     return {
         journey: state.journies.find((journey) => {
-            return journey.jourID === props.match.params.id;
+            console.log('journey.JourId: '+journey.JourId);
+            // console.log(state.journies);
+             console.log('props.match.params.id: '+props.match.params.id);
+            return journey.JourId == props.match.params.id;
         })
     }
 }
