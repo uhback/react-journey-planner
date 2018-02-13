@@ -13,6 +13,7 @@
 * Semantic UI : For design
 
 ## Release Note
+* 13.Feb.2018: Login page Design (Add Background Image and apply scss)
 * 13.Feb.2018: Finish CRUD functions in the journey page
 
 ## Next Steps (Continue updating)

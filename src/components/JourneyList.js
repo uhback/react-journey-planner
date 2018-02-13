@@ -4,7 +4,6 @@ import JourneyListItem from './JourneyListItem';
 
 const JourneyList = (props) => (
     <div>
-        <h1>Journey List</h1>
         {props.journies.map((journey) => (
             <JourneyListItem {...journey} key={journey.JourId} />
         ))}

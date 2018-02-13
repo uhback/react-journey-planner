@@ -4,6 +4,7 @@ import LoginForm from './LoginForm';
 import { startLogin } from '../actions/auth';
 import { startSetMyJourney } from '../actions/journies';
 
+import { Container, Image } from 'semantic-ui-react';
 
 class LoginPage extends React.Component {
     onSubmit = (auth) => {
@@ -14,9 +15,13 @@ class LoginPage extends React.Component {
     render() {
         return (
             <div>
-                <h2>Login</h2>
-                <LoginForm
-                    onSubmit={this.onSubmit} />
+                <div className="img-bg-login">
+                    <Image src='../../images/loginbg.jpg' className="img-bg-login"/>
+                </div>
+                <div className="container-login">
+                    <LoginForm
+                        onSubmit={this.onSubmit} />
+                </div>
             </div>
         )
     }
