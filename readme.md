@@ -1,19 +1,16 @@
-## Journey Planner
+# Journey Planner
 
-# Intro.
+## Intro.
 > This application is to make a own journey and share/interact the journey plans that other people posted.
 
-# Main Includes
+## Main Includes
 * React
 * React-Redux
 * React-router
 * Webpack
 * Semantic UI
 
-# Bug Report
-* https://docs.google.com/spreadsheets/d/1bmmZ90_t0lqlEYLGjGAHDeEjGcdYKsBZp8VFn8qDeGI/edit?usp=sharing
-
-# Release Report
+## Release Report
 * 13.Feb.2018: Finish CRUD functions in the journey page
 
 # Next Step
@@ -22,4 +19,7 @@
 * Add Sign in Page
 * Heroku hosting setting - seperate dev and production
 * Add Contact Page
-* Finish 1st Project.
+* Finish 1st Project (version 1).
+
+## Bug Report
+* https://docs.google.com/spreadsheets/d/1bmmZ90_t0lqlEYLGjGAHDeEjGcdYKsBZp8VFn8qDeGI/edit?usp=sharing
