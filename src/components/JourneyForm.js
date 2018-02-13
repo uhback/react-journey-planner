@@ -9,6 +9,7 @@ class JourneyForm extends React.Component {
     constructor(props){
         super(props);
         this.state = {
+            JourId: props.journey ? props.journey.JourId : undefined,
             Title: props.journey ? props.journey.Title : '',
             Note: props.journey ? props.journey.Note : '',
             StartDate: props.journey ? moment(props.journey.StartDate) : moment(),
@@ -18,28 +19,33 @@ class JourneyForm extends React.Component {
             focusedInput: null,
             error: ''
         }
+
     }
 
 
     onTitleChange = (e) => {
-        const title = e.target.value;
-        this.setState(() => ({ title }));
+        const Title = e.target.value; // Name has to be a same name of State
+        this.setState(() => ({ Title }));
     }
     onNoteChange = (e) => {
-        const note = e.target.value;
-        this.setState(() => ({ note }));
+        const Note = e.target.value;
+        this.setState(() => ({ Note }));
     }
-    onDatesChange = ({ startDate, endDate }) => {
-           this.setState(() => ({ startDate, endDate }));
+    onDatesChange = ({ startDate, endDate }) => {  
+        this.setState({
+            StartDate: startDate,
+            EndDate: endDate
+        });
     }
 
     onSubmit = (e) => {
         e.preventDefault();
-        if (!this.state.title && this.state.startDate && this.state.endDate) {
+        if (!this.state.Title && this.state.StartDate && this.state.EndDate) {
             this.setState(() => ({ error: 'Please fill the all blanks'}));
         } else {
             this.setState(() => ({ error: '' }));
-            this.props.onSubmit({                
+            this.props.onSubmit({
+                JourId: this.state.JourId,                
                 Title: this.state.Title,
                 StartDate: this.state.StartDate.format('YYYY-MM-DD'),
                 EndDate: this.state.EndDate.format('YYYY-MM-DD'),
@@ -64,9 +70,9 @@ class JourneyForm extends React.Component {
                     />
                     <DateRangePicker
                         startDate={this.state.StartDate}
-                        startDateId="StartDate"
+                        startDateId="startDate"
                         endDate={this.state.EndDate}
-                        endDateId="EndDate"
+                        endDateId="endDate"
                         onDatesChange={this.onDatesChange}
                         focusedInput={this.state.focusedInput}
                         onFocusChange={focusedInput => this.setState({ focusedInput })}

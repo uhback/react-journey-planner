@@ -1,14 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import JourneyForm from './JourneyForm';
-import { editJourney } from '../actions/journies';
+import { startEditJourney, startSetMyJourney, startDeleteJourney } from '../actions/journies';
 
 class EditJourneyPage extends React.Component {
     onSubmit = (journey) => {
-        this.props.dispatch(editJourney(journey.JourId, journey));
-        this.props.history.push('/');
+        this.props.startEditJourney(this.props.journey.JourId, journey).then(() => {
+            this.props.startSetMyJourney()
+        })
+        this.props.history.push('/dashboard');
     }
-    
+    onDelete = () => {
+        this.props.startDeleteJourney({ JourId: this.props.journey.JourId }).then(() => {
+            this.props.startSetMyJourney()
+        });
+        this.props.history.push('/dashboard');
+    }
     render () {
         return (
             <div>
@@ -16,7 +23,7 @@ class EditJourneyPage extends React.Component {
                     journey={this.props.journey}
                     onSubmit={this.onSubmit}
                 />
-                <button>Remove</button>
+                <button onClick={this.onDelete}>Delete</button>
             </div>
         )
     }
@@ -25,12 +32,15 @@ class EditJourneyPage extends React.Component {
 const mapStateToProps = (state, props) => {
     return {
         journey: state.journies.find((journey) => {
-            console.log('journey.JourId: '+journey.JourId);
-            // console.log(state.journies);
-             console.log('props.match.params.id: '+props.match.params.id);
             return journey.JourId == props.match.params.id;
         })
     }
 }
 
-export default connect(mapStateToProps)(EditJourneyPage);
+const mapDispatchToProps = (dispatch, props) => ({
+    startEditJourney: (JourId, journey) => dispatch(startEditJourney(JourId, journey)),
+    startSetMyJourney: () => dispatch(startSetMyJourney()),
+    startDeleteJourney: (data) => dispatch(startDeleteJourney(data))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(EditJourneyPage);

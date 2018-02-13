@@ -5,11 +5,12 @@ import JourneyList from './JourneyList';
 import { startSetMyJourney } from '../actions/journies';
 
 class JourneyDashboard extends React.Component {
-    constructor(props){
-        super(props);
-            // 페이지 클릭시마다 호출됨 - 해결필요
-            this.props.startSetMyJourney();
-    }
+    // constructor(props){
+    //     super(props);
+    //         // 페이지 클릭시마다 호출됨 - 해결필요
+    //         this.props.startSetMyJourney();
+    // }
+    //startSetMyJourney();
     render() {        
         return (
             <div>

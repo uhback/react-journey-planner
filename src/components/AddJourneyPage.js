@@ -1,12 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import JourneyForm from './JourneyForm';
-import { startAddJourney } from '../actions/journies';
+import { startAddJourney, startSetMyJourney } from '../actions/journies';
 
 class AddJourneyPage extends React.Component {
     onSubmit = (journey) => {
-        this.props.startAddJourney(journey);
-        this.props.history.push('/');
+        this.props.startAddJourney(journey).then(() => {
+            this.props.startSetMyJourney()
+        })
+        this.props.history.push('/dashboard');
     }
     render() {
         return (
@@ -19,6 +21,7 @@ class AddJourneyPage extends React.Component {
     }
 }
 const mapDispatchToProps = (dispatch) => ({
-    startAddJourney: (journey) => dispatch(startAddJourney(journey))
+    startAddJourney: (journey) => dispatch(startAddJourney(journey)),
+    startSetMyJourney: () => dispatch(startSetMyJourney())
 })
 export default connect(undefined, mapDispatchToProps)(AddJourneyPage);

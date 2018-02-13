@@ -12,7 +12,7 @@ export const startAddJourney = (journey) => {
     return (dispatch) => {
         return axios.post(`${ROOT_URL}/api/journey/addMyjourney`, journey).then((ref) => {
             dispatch(addJourney({
-                jourID: ref.data,
+                JourId: ref.data,
                 ...journey
             }));
         }).catch((e) => {
@@ -21,21 +21,34 @@ export const startAddJourney = (journey) => {
     }
 }
 
-export const editJourney = (jourID, updates) => ({
+export const editJourney = (JourId, updates) => ({
     type: 'EDIT_JOURNEY',
-    jourID,
+    JourId,
     updates
 })
 
-export const startEditJourney = (jourID, updates) => {
+export const startEditJourney = (JourId, updates) => {
     return (dispatch) => {
-        return axios.put(`${ROOT_URL}/api/journey/updatejourney/${jourID}`, updates).then(() => {
+        return axios.put(`${ROOT_URL}/api/journey/updatejourney/${JourId}`, updates).then(() => {
             dispatch(editJourney({
-                jourID,
+                JourId,
                 ...updates
             }));
         }).catch((e) => {
             console.log(e)
+        })
+    }
+}
+
+export const deleteJourney = ({ JourId } = {}) => ({
+    type: 'DELETE_JOURNEY',
+    JourId
+})
+
+export const startDeleteJourney = ({ JourId } = {}) => {
+    return (dispatch) => {
+        return axios.patch(`${ROOT_URL}/api/journey/deletejourney/${JourId}`).then(() => {
+            dispatch(deleteJourney({ JourId }));
         })
     }
 }

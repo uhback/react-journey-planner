@@ -71,19 +71,3 @@ const jsx = (
 // console.log(store.getState());
 ReactDOM.render(jsx, document.getElementById('app'));
 
-
-// const authStateChange = (auth) => {
-//     if (auth) {
-//         store.dispatch(login(auth.uid));
-//         renderApp();
-//         if (history.location.pathname === '/') {
-//             history.push('/dashboard');
-//         }
-//     } else {
-//         store.dispatch(logout());
-//         renderApp();
-//         history.push('/');
-//     }
-// }
-
-// ReactDOM.render(<AuthStateChange />, document.getElementById('app'));

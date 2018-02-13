@@ -4,9 +4,11 @@ export default (state = journeyReducerDefaultState, action) => {
     switch (action.type) {
         case 'ADD_JOURNEY':
             return [...state, action.journey]
+        case 'DELETE_JOURNEY':
+            return state.filter(journey => journey.JourId !== action.JourId)
         case 'EDIT_JOURNEY':
             return state.map((journey) => {
-                if (journey.jourID === action.jourID) {
+                if (journey.JourId === action.JourId) {
                     return {
                         ...journey,
                         ...action.updates
