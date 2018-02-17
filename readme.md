@@ -13,16 +13,18 @@
 * Semantic UI : For design
 
 ## Release Note
+* 17.Feb.2018: Journey List/Form Styling - initial version is finished
 * 13.Feb.2018: Login page Design (Add Background Image and apply scss)
 * 13.Feb.2018: Finish CRUD functions in the journey page
 
 ## Next Steps (Continue updating)
-* Design the webpage
+* Design the webpage (2/17 done)
 * Add Shared Journey Page - Create API(all users agreed sharing), Front Makeup
+* Add Country/Region(city) information
 * Add Sign in Page
 * Heroku hosting setting - seperate dev and production
 * Add Contact Page
-* Finish 1st Project (version 1).
+* Finish 1st Project (version 1.0).
 
 ## Documentation
 * Trouble Shooting: https://docs.google.com/spreadsheets/d/1bmmZ90_t0lqlEYLGjGAHDeEjGcdYKsBZp8VFn8qDeGI/edit?usp=sharing

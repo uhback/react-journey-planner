@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import JourneyForm from './JourneyForm';
 import { startEditJourney, startSetMyJourney, startDeleteJourney } from '../actions/journies';
+import { Header, Button } from 'semantic-ui-react';
 
 class EditJourneyPage extends React.Component {
     onSubmit = (journey) => {
@@ -19,11 +20,16 @@ class EditJourneyPage extends React.Component {
     render () {
         return (
             <div>
-                <JourneyForm 
-                    journey={this.props.journey}
-                    onSubmit={this.onSubmit}
-                />
-                <button onClick={this.onDelete}>Delete</button>
+                <div className="container-header">
+                    <Header as='h2' textAlign='center' color='grey'>Edit my journey</Header>            
+                    <div className="container-form">
+                        <JourneyForm 
+                            journey={this.props.journey}
+                            onSubmit={this.onSubmit}
+                        />
+                        <Button onClick={this.onDelete} color='red' floated='left' >Delete</Button>                        
+                    </div>
+                </div>
             </div>
         )
     }

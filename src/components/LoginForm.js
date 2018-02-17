@@ -24,8 +24,7 @@ export default class LoginForm extends React.Component {
     }
     render() {
         return (
-            <div className="form-login">
-                <h1>Journey Planner</h1>
+            <div>
                 <Form onSubmit={this.onSubmit}>
                     <Form.Field>
                         <Input

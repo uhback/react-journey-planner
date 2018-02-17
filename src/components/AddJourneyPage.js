@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import JourneyForm from './JourneyForm';
 import { startAddJourney, startSetMyJourney } from '../actions/journies';
+import { Header } from 'semantic-ui-react';
 
 class AddJourneyPage extends React.Component {
     onSubmit = (journey) => {
@@ -13,9 +14,13 @@ class AddJourneyPage extends React.Component {
     render() {
         return (
             <div>
-                <h2>Create a New Journey</h2>
-                <JourneyForm
-                    onSubmit={this.onSubmit} />
+                <div className="container-header">
+                    <Header as='h2' textAlign='center' color='grey'>Create a New Journey</Header>            
+                </div>
+                <div className="container-form">
+                    <JourneyForm
+                        onSubmit={this.onSubmit} />
+                </div>
             </div>
         )
     }

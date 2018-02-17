@@ -1,4 +1,4 @@
-.img-bg-login {
+.background-login {
     width: 100%;
     min-height: 100vh;
     bottom: 0;
@@ -8,6 +8,8 @@
     position: fixed;
     right: 0;
     top: 0;
+    background: url(#{$image-path}/loginbg.jpg) no-repeat, center;
+    background-size: cover
 }
 .form-login {
    padding: 30px;

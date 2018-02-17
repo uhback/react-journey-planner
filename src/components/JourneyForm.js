@@ -2,7 +2,9 @@ import React, { Compoent } from 'react';
 import { connect } from 'react-redux';
 import moment from 'moment';
 import { SingleDatePicker, DateRangePicker } from 'react-dates';
-//import uuid from 'uuid';
+import { startDeleteJourney, startSetMyJourney } from '../actions/journies';
+
+import { Form, Button, Grid } from 'semantic-ui-react';
 import 'react-dates/lib/css/_datepicker.css';
 
 class JourneyForm extends React.Component {
@@ -17,11 +19,9 @@ class JourneyForm extends React.Component {
             UserID: props.auth ? props.auth.uid : '',
             State: 'A',
             focusedInput: null,
-            error: ''
+            error: '',
         }
-
     }
-
 
     onTitleChange = (e) => {
         const Title = e.target.value; // Name has to be a same name of State
@@ -58,34 +58,48 @@ class JourneyForm extends React.Component {
 
     render() {
         return (
-            <div>
-                {this.state.error && <p>{this.state.error}</p>}
-                <form onSubmit={this.onSubmit}>
-                    <input 
-                        type="text" 
-                        placeholder="Title" 
-                        autoFocus 
-                        value={this.state.Title} 
-                        onChange={this.onTitleChange}
-                    />
-                    <DateRangePicker
-                        startDate={this.state.StartDate}
-                        startDateId="startDate"
-                        endDate={this.state.EndDate}
-                        endDateId="endDate"
-                        onDatesChange={this.onDatesChange}
-                        focusedInput={this.state.focusedInput}
-                        onFocusChange={focusedInput => this.setState({ focusedInput })}
-                        withPortal
-                    />
-                    <textarea
-                        placeholder="Add a note for your journey (optional)"
-                        value={this.state.Note}
-                        onChange={this.onNoteChange}
-                    />
-                    <button>Save</button>
-                </form>
-            </div>
+            <Grid columns={2} padded>
+                <Grid.Column>
+                    {this.state.error && <p>{this.state.error}</p>}
+                    <Form onSubmit={this.onSubmit}>
+                        <Form.Field>
+                            <label>Title</label>
+                            <input 
+                                type="text" 
+                                placeholder="Title" 
+                                autoFocus 
+                                value={this.state.Title} 
+                                onChange={this.onTitleChange}
+                            />
+                        </Form.Field>
+                        <Form.Field>
+                            <label>Period</label>
+                            <DateRangePicker
+                                startDate={this.state.StartDate}
+                                startDateId="startDate"
+                                endDate={this.state.EndDate}
+                                endDateId="endDate"
+                                onDatesChange={this.onDatesChange}
+                                focusedInput={this.state.focusedInput}
+                                onFocusChange={focusedInput => this.setState({ focusedInput })}
+                                withPortal
+                            />
+                        </Form.Field>
+                        <Form.Field>
+                            <label>Note</label>
+                            <textarea
+                                placeholder="Add a note for your journey (optional)"
+                                value={this.state.Note}
+                                onChange={this.onNoteChange}
+                            />
+                        </Form.Field>
+                        <Button primary>Save</Button>
+                    </Form>
+                </Grid.Column>
+                <Grid.Column>
+                    <h3>Search Location (Grid2, GoogleMap)</h3>
+                </Grid.Column>
+            </Grid>
         )
     }
 }

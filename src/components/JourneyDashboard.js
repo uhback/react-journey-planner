@@ -3,24 +3,19 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import JourneyList from './JourneyList';
 import { startSetMyJourney } from '../actions/journies';
+import { Button } from 'semantic-ui-react'
 
 class JourneyDashboard extends React.Component {
-    // constructor(props){
-    //     super(props);
-    //         // 페이지 클릭시마다 호출됨 - 해결필요
-    //         this.props.startSetMyJourney();
-    // }
-    //startSetMyJourney();
     render() {        
         return (
-            <div>
-            <div>
-                <Link to='/create'><button>+New Journey</button></Link>
+            <div className="container">
+                <div className="container-sort">
+                    <Link to='/create'><Button color='black'>+New Journey</Button></Link>
+                </div>
+                <div className="container-list">
+                    <JourneyList />
+                </div>
             </div>
-            <div>
-                <JourneyList />
-            </div>
-        </div>
         )
     }
 }

@@ -4,22 +4,20 @@ import moment from 'moment';
 import { Card, Icon, Image } from 'semantic-ui-react';
 
 const JourneyListItem = ({ JourId, Title, StartDate, EndDate, Note }) => (
-    <Card.Group>
-        <Card>
+        <Card color='blue'>
             <Card.Content as={Link} to={`/edit/${JourId}`}>
                 <Image src='../../images/nzflag.png' />
-                <Card.Header>
+                <Card.Header className="card-header">
                     {Title}
                 </Card.Header>
-                <Card.Meta>
+                <Card.Meta className="card-meta">
                     {moment(StartDate).format('DD. MMM. YYYY')} to {moment(EndDate).format('DD. MMM. YYYY')}
                 </Card.Meta>
-                <Card.Description>
+                <Card.Description className="card-description">
                     {Note}
                 </Card.Description>
             </Card.Content>
         </Card>
-    </Card.Group>
 )
 
 // const JourneyListItem = ({ title, startDate, endDate, note }) => (

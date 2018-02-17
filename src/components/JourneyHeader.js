@@ -7,7 +7,6 @@ import { startLogout } from '../actions/auth';
 class JourneyHeader extends React.Component {
     state = { activeItem: '' }
 
-    // Can't update the state issue..
     handleItemClick = (e, { name }) => this.setState({ activeItem: name }, () => console.log(this.state.value))
     
     onClickLogout = () => {
@@ -17,24 +16,26 @@ class JourneyHeader extends React.Component {
     render() {
       const { activeItem } = this.state
       return (
-        <div>
-            <Header as='h1' icon textAlign='center' color='black'>
-              <Icon name='plane' color='red' />
-              <Header.Content>
-                Journey Planner
-              </Header.Content>
-              <Header.Subheader>
-                Make your private journey and share your expedition to others!
-              </Header.Subheader>
-            </Header>
-          <Menu pointing secondary>
-            <Menu.Item name='Dashboard' as={NavLink} exact to={'/dashboard'} active={activeItem === 'Dashboard'} onClick={this.handleItemClick} />
-            <Menu.Item name='ShareJourney' as={NavLink} exact to={'/shareboard'} active={activeItem === 'ShareJourney'} onClick={this.handleItemClick} />
-            <Menu.Item name='Contact' as={NavLink} exact to={'/contact'} active={activeItem === 'Contact'} onClick={this.handleItemClick} />
-            <Menu.Menu position='right'>
-              <Menu.Item name='Logout' onClick={this.onClickLogout} />
-            </Menu.Menu>
-          </Menu>
+        <div className="container">
+          <Header as='h1' icon textAlign='center' color='black'>
+            <Icon name='plane' color='red' />
+            <Header.Content>
+              Journey Planner
+            </Header.Content>
+            <Header.Subheader>
+              Make your private journey and share your expedition to others!
+            </Header.Subheader>
+          </Header>
+          <div>
+            <Menu pointing secondary>
+              <Menu.Item name='Dashboard' as={NavLink} exact to={'/dashboard'} active={activeItem === 'Dashboard'} onClick={this.handleItemClick} />
+              <Menu.Item name='ShareJourney' as={NavLink} exact to={'/shareboard'} active={activeItem === 'ShareJourney'} onClick={this.handleItemClick} />
+              <Menu.Item name='Contact' as={NavLink} exact to={'/contact'} active={activeItem === 'Contact'} onClick={this.handleItemClick} />
+              <Menu.Menu position='right'>
+                <Menu.Item name='Logout' onClick={this.onClickLogout} />
+              </Menu.Menu>
+            </Menu>
+          </div>
         </div>
       )
     }
