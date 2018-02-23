@@ -4,7 +4,7 @@ import createHistory from 'history/createBrowserHistory'
 
 import JourneyHeader from '../components/JourneyHeader';
 import JourneyDashboard from '../components/JourneyDashboard';
-import JourneyShareboard from '../components/JourneyShareboard';
+import ShareJourneyBoard from '../components/ShareJourneyBoard';
 import Contact from '../components/Contact';
 import NotfountPage from '../components/NotfoundPage';
 import AddJourneyPage from '../components/AddJourneyPage';
@@ -21,7 +21,7 @@ const AppRouter = () => (
             <Switch>
                 <PublicRoute path="/" component={LoginPage} exact={true}/>
                 <PrivateRoute path="/dashboard" component={JourneyDashboard} />
-                <PrivateRoute path="/shareboard" component={JourneyShareboard} />
+                <PrivateRoute path="/shareboard" component={ShareJourneyBoard} />
                 <PrivateRoute path="/contact" component={Contact} />
                 <PrivateRoute path="/create" component={AddJourneyPage} />
                 <PrivateRoute path="/edit/:id" component={EditJourneyPage} />

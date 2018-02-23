@@ -1,24 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import JourneyListItem from './JourneyListItem';
+import ShareJourneyListItem from './ShareJourneyListItem';
 import { Grid, Image, Card } from 'semantic-ui-react'
 
-const JourneyList = (props) => (
+const ShareJourneyList = (props) => (
     <div className="container">
         <Card.Group itemsPerRow={4} doubling stackable>
-            {props.journies.map((journey) => (
-                  <JourneyListItem {...journey} key={journey.JourId} />
+            {props.sharedJournies.map((journey) => (
+                  <ShareJourneyListItem {...journey} key={journey.JourId} />
             ))}
         </Card.Group>
     </div>
-
 )
 
 const mapStateToProps = (state) => {
     return {
-        journies: state.journies,
+        sharedJournies: state.sharedJournies,
         auth: state.auth
     }
 }
-
-export default connect(mapStateToProps)(JourneyList);
+export default connect(mapStateToProps)(ShareJourneyList);

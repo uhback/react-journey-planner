@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
-import { Card, Icon, Image } from 'semantic-ui-react';
+import { Card, Icon, Image, Button, Grid } from 'semantic-ui-react';
 
 const JourneyListItem = ({ JourId, Title, StartDate, EndDate, Note }) => (
-        <Card color='blue'>
+    <Card color='blue'>
             <Card.Content as={Link} to={`/edit/${JourId}`}>
-                <Image src='../../images/nzflag.png' />
+                <Image src='../../images/nzflag.png' />            
                 <Card.Header className="card-header">
                     {Title}
                 </Card.Header>
@@ -16,8 +16,12 @@ const JourneyListItem = ({ JourId, Title, StartDate, EndDate, Note }) => (
                 <Card.Description className="card-description">
                     {Note}
                 </Card.Description>
-            </Card.Content>
-        </Card>
+            </Card.Content>    
+        <Button attached="bottom">
+            <Icon name="add circle" />
+            Add Location
+        </Button>
+    </Card>
 )
 
 // const JourneyListItem = ({ title, startDate, endDate, note }) => (

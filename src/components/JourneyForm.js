@@ -5,6 +5,7 @@ import { SingleDatePicker, DateRangePicker } from 'react-dates';
 import { startDeleteJourney, startSetMyJourney } from '../actions/journies';
 
 import { Form, Button, Grid } from 'semantic-ui-react';
+import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
 import 'react-dates/lib/css/_datepicker.css';
 
 class JourneyForm extends React.Component {
@@ -17,6 +18,7 @@ class JourneyForm extends React.Component {
             StartDate: props.journey ? moment(props.journey.StartDate) : moment(),
             EndDate: props.journey ? moment(props.journey.EndDate) : moment(),
             UserID: props.auth ? props.auth.uid : '',
+            PublicState: props.journey ? props.journey.PublicState : 'Y',
             State: 'A',
             focusedInput: null,
             error: '',
@@ -49,16 +51,17 @@ class JourneyForm extends React.Component {
                 Title: this.state.Title,
                 StartDate: this.state.StartDate.format('YYYY-MM-DD'),
                 EndDate: this.state.EndDate.format('YYYY-MM-DD'),
+                Note: this.state.Note,                
                 UserID: this.state.UserID,
-                State: this.state.State,           
-                Note: this.state.Note
+                PublicState: this.state.PublicState,
+                State: this.state.State
             })
         }
     }
 
     render() {
         return (
-            <Grid columns={2} padded>
+            <Grid columns={2}>
                 <Grid.Column>
                     {this.state.error && <p>{this.state.error}</p>}
                     <Form onSubmit={this.onSubmit}>
@@ -95,9 +98,6 @@ class JourneyForm extends React.Component {
                         </Form.Field>
                         <Button primary>Save</Button>
                     </Form>
-                </Grid.Column>
-                <Grid.Column>
-                    <h3>Search Location (Grid2, GoogleMap)</h3>
                 </Grid.Column>
             </Grid>
         )

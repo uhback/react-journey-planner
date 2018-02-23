@@ -20,8 +20,8 @@ class JourneyDashboard extends React.Component {
     }
 }
 
-const mapDispatchToProps = (dispatch) => ({
-    startSetMyJourney: () => dispatch(startSetMyJourney())
-})
+// const mapDispatchToProps = (dispatch) => ({
+//     startSetMyJourney: () => dispatch(startSetMyJourney())
+// })
 
-export default connect(undefined, mapDispatchToProps)(JourneyDashboard);
+export default JourneyDashboard
