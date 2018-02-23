@@ -22,22 +22,22 @@
 * 13.Feb.2018: Finish CRUD functions in the journey page
 
 ## Next Steps (Continue updating)
-0. [x] Design the webpage **(2/17 done)**
+Design the webpage **(17.Feb DONE)**
 
-1. Shared Journey Page
- - [x] Add Shared Journey Page - Create API(all users agreed sharing), Front Makeup **(2/23 done)**
+**Shared Journey Page**
+ - [x] Add Shared Journey Page - Create API(all users agreed sharing), Front Makeup **(23.Feb DONE)**
  - [ ] Make a like button on the Shared Journey page (only can click once)
 
-2. My Journey Page
+**My Journey Page**
  - [ ] Add Country/Region(city) information 
 
-3. Contact page
+**Contact page**
  - [ ] Add simple information
 
-4. Login Page
+**Login Page**
  - [ ] Add Sign in Page
 
-5. Server Side
+**Server Side**
  - [ ] Heroku hosting setting - seperate dev and production
 
 ## Documentation
