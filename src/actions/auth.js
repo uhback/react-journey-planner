@@ -27,3 +27,13 @@ export const startLogout = () => {
         return dispatch(logout());
     }
 }
+
+// Get UserID to Login
+export const startAddUser = (user) => {
+    return (dispatch) => {
+        return axios.post(`${ROOT_URL}/api/login/adduser`, user)
+        .catch((e) => {
+            console.log(e)
+        })
+    }
+}

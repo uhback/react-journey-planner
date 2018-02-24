@@ -16,17 +16,18 @@ class LoginPage extends React.Component {
     }
     render() {
         return (
-            <div>              
-                <div className="background-login">
-                    <Header as='h1' color='black'>Journey Planner</Header>                                                
-                    <div className="img-bg-cover">
-                        <div className="container-login">
+            <div className="outer-container background-login">
+                <div className="inner-container">
+                    <div className="centered-container">
+                        <div className="login-form">
+                            <h1 style={{ color: 'white' }}>Journey Planner</h1>
                             <LoginForm
                                 onSubmit={this.onSubmit} />
                         </div>
                     </div>
                 </div>
             </div>
+
         )
     }
 } 

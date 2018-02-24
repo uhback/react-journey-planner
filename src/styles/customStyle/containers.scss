@@ -32,3 +32,39 @@
     margin-bottom: 2%;
     background-color: #FFFACD
 }
+
+.container-signin-form {
+    // margin-top: 5%;
+    // margin-left: 15%;
+    // margin-right: 15%;
+    // min-height: 100vh;
+    display: inline-block;
+    text-align: left;
+    padding : 20px;
+    margin: auto
+}
+
+
+.outer-container {
+    position : absolute;
+    display: table;
+    width: 100%; /* This could be ANY width */
+    height: 100%; /* This could be ANY height */
+}
+
+.inner-container {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.centered-content {
+    display: inline-block;
+    text-align: left;
+    padding : 20px;
+}
+
+.login-form {
+    max-width: 300px;
+    margin: auto
+}

@@ -12,6 +12,7 @@ import LoginPage from '../components/LoginPage';
 import PrivateRoute from './PrivateRouter';
 import PublicRoute from './PublicRouter';
 import EditJourneyPage from '../components/EditJourneyPage';
+import AddUserPage from '../components/AddUserPage';
 
 export const history = createHistory(); // createBrowserHistory
 
@@ -20,6 +21,7 @@ const AppRouter = () => (
         <div>
             <Switch>
                 <PublicRoute path="/" component={LoginPage} exact={true}/>
+                <PublicRoute path="/signin" component={AddUserPage} />
                 <PrivateRoute path="/dashboard" component={JourneyDashboard} />
                 <PrivateRoute path="/shareboard" component={ShareJourneyBoard} />
                 <PrivateRoute path="/contact" component={Contact} />

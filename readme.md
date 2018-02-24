@@ -16,6 +16,7 @@
 > This is only for the front-end side, so need to set the back-end side and modify the *actions* to call the api if you want to use it.
 
 ## Release Note
+* 24.Feb.2018: Add Sign-in Page, Add Login/Sign-in form validation
 * 23.Feb.2018: Initially add Shared Journey Page (Need more update)
 * 17.Feb.2018: Journey List/Form Styling - initial version is finished
 * 13.Feb.2018: Login page Design (Add Background Image and apply scss)
@@ -35,7 +36,8 @@ Design the webpage **(17.Feb DONE)**
  - [ ] Add simple information
 
 **Login Page**
- - [ ] Add Sign in Page
+ - [x] Add Sign in Page **(24.Feb DONE)**
+ - [x] Add Login, Sign-in Validation **(24.Feb DONE)**
 
 **Server Side**
  - [ ] Heroku hosting setting - seperate dev and production
