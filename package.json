@@ -40,7 +40,7 @@
     "dev-server": "webpack-dev-server",
     "build:prod": "webpack -p --env production",
     "heroku-postbuild": "yarn run build:prod",
-    "start": "node server.js"
+    "start": "node server/server.js"
   },
   "devDependencies": {
     "webpack-dev-server": "^2.11.1"
