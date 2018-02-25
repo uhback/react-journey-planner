@@ -12,7 +12,7 @@ export const startLogin = ({ userAccount, password }) => {
         return axios.post(`${ROOT_URL}/api/login`, { userAccount, password }).then((response) => {
             dispatch(login(response.data));
         }).catch((e) => {
-            console.log(e)
+            alert('Network Error, Sorry try again later');
         })
     }
 }
@@ -33,7 +33,7 @@ export const startAddUser = (user) => {
     return (dispatch) => {
         return axios.post(`${ROOT_URL}/api/login/adduser`, user)
         .catch((e) => {
-            console.log(e)
+            alert('Network Error, Sorry try again later');
         })
     }
 }
