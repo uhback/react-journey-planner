@@ -1,5 +1,5 @@
 import axios from 'axios';
-const ROOT_URL = "http://localhost:1813";
+const API_URL = process.env.API_URL;
 
 export const login = (uid) => ({
     type: 'LOGIN',
@@ -9,7 +9,8 @@ export const login = (uid) => ({
 // Get UserID to Login
 export const startLogin = ({ userAccount, password }) => {
     return (dispatch) => {
-        return axios.post(`${ROOT_URL}/api/login`, { userAccount, password }).then((response) => {
+        console.log(API_URL);
+        return axios.post(`${API_URL}/api/Users/auth`, { userAccount, password }).then((response) => {
             dispatch(login(response.data));
         }).catch((e) => {
             alert('Network Error, Sorry try again later');
@@ -31,7 +32,7 @@ export const startLogout = () => {
 // Get UserID to Login
 export const startAddUser = (user) => {
     return (dispatch) => {
-        return axios.post(`${ROOT_URL}/api/login/adduser`, user)
+        return axios.post(`${API_URL}/api/Users/adduser`, user)
         .catch((e) => {
             alert('Network Error, Sorry try again later');
         })

@@ -1,5 +1,17 @@
 const path = require('path');
 const ExtractTextPlguin = require("extract-text-webpack-plugin");
+const webpack = require('webpack');
+
+// Heroku initially set the NODE_ENV to 'production', otherwise set 'dev'
+process.env.NODE_ENV = process.env.NODE_ENV || 'dev';
+
+if (process.env.NODE_ENV === 'production') {
+    console.log('prod: ' + process.env.NODE_ENV);
+    require('dotenv').config({ path: '.env.prod' });
+} else if (process.env.NODE_ENV === 'dev') {
+    console.log('dev: ' + process.env.NODE_ENV);
+    require('dotenv').config({ path: '.env.dev' });
+}
 
 module.exports = (env) => {
     const isProduction = env === 'production'; // true or false
@@ -35,7 +47,10 @@ module.exports = (env) => {
         },
         // any plugins add
         plugins: [
-            CSSExtract
+            CSSExtract,
+            new webpack.DefinePlugin({
+                'process.env.API_URL': JSON.stringify(process.env.API_URL),
+            })
         ],
         // source-map: slow build but production -> for real server
         // inline-source-map: slow build and not production (not be minimalized)-> it's for dev-server

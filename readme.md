@@ -31,7 +31,8 @@ Initial design of the webpage **(17.Feb DONE)**
  - [ ] Make a like button on the Shared Journey page (only can click once)
 
 **My Journey Page**
- - [ ] Add Country/Region(city) information 
+ - [ ] Add Country/Region(city) information
+ - [ ] Google Map is shown to indicate my journey visually (New on 26.Feb)
 
 **Contact page**
  - [x] Add simple information
@@ -39,10 +40,12 @@ Initial design of the webpage **(17.Feb DONE)**
 **Login Page**
  - [x] Add Sign in Page **(24.Feb DONE)**
  - [x] Add Login, Sign-in Validation **(24.Feb DONE)**
+ - [ ] Use localstorage to keep the session in Redux (New on 26.Feb)
 
 **Server Side**
  - [x] Heroku hosting setting - seperate dev and production **(25.Feb DONE)**
  - [ ] API Server and database Setting on AWS Cloud (New on 25.Feb)
+ - [ ] Login Session security, add api_key into the header when the account was created (New on 26.Feb)
 
 ## Documentation
 * Trouble Shooting: https://docs.google.com/spreadsheets/d/1bmmZ90_t0lqlEYLGjGAHDeEjGcdYKsBZp8VFn8qDeGI/edit?usp=sharing

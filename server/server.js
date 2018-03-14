@@ -4,6 +4,8 @@ const app = express();
 const publicPath = path.join(__dirname, '..', 'public');
 const port = process.env.PORT || 3000;
 
+process.env.NODE_ENV = 'production';
+
 app.use(express.static(publicPath));
 
 // routing
@@ -13,4 +15,5 @@ app.get('*', (req, res) => {
 
 app.listen(port, () => {
     console.log('Server is up!');
+    console.log(process.env.NODE_ENV)
 });

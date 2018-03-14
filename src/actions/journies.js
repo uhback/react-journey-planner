@@ -1,5 +1,5 @@
 import axios from 'axios';
-const ROOT_URL = "http://localhost:1813";
+const API_URL = process.env.API_URL;
 
 // Add Journey
 export const addJourney = (journey) => ({
@@ -10,7 +10,7 @@ export const addJourney = (journey) => ({
 // Add Journey in DB and dispatch
 export const startAddJourney = (journey) => {
     return (dispatch) => {
-        return axios.post(`${ROOT_URL}/api/journey/addMyjourney`, journey).then((ref) => {
+        return axios.post(`${API_URL}/api/Journeys/addMyjourney`, journey).then((ref) => {
             dispatch(addJourney({
                 JourId: ref.data,
                 ...journey
@@ -29,7 +29,7 @@ export const editJourney = (JourId, updates) => ({
 
 export const startEditJourney = (JourId, updates) => {
     return (dispatch) => {
-        return axios.put(`${ROOT_URL}/api/journey/updatejourney/${JourId}`, updates).then(() => {
+        return axios.put(`${API_URL}/api/Journeys/updatejourney/${JourId}`, updates).then(() => {
             dispatch(editJourney({
                 JourId,
                 ...updates
@@ -47,7 +47,7 @@ export const deleteJourney = ({ JourId } = {}) => ({
 
 export const startDeleteJourney = ({ JourId } = {}) => {
     return (dispatch) => {
-        return axios.patch(`${ROOT_URL}/api/journey/deletejourney/${JourId}`).then(() => {
+        return axios.patch(`${API_URL}/api/Journeys/deletejourney/${JourId}`).then(() => {
             dispatch(deleteJourney({ JourId }));
         })
     }
@@ -63,7 +63,7 @@ export const startSetMyJourney = () => {
     return (dispatch, getState) => {
         const uid = getState().auth.uid;
         // promise gets returned allow us to have access "then"
-        return axios.get(`${ROOT_URL}/api/journey/myjourney/${uid}`, uid).then((snapshot) => {
+        return axios.get(`${API_URL}/api/Journeys/myjourney/${uid}`, uid).then((snapshot) => {
             const journies = [];
             
             snapshot.data.forEach((childSnapshot) => {

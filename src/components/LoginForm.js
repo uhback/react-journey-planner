@@ -23,9 +23,9 @@ export default class LoginForm extends React.Component {
     onSubmit = (e) => {
         e.preventDefault();
         if (this.state.userAccount === '' ) {
-            this.setState(() => ({ errorID: 'Put your ID'}));
+            this.setState(() => ({ errorID: 'User ID is required'}));
         } else if (this.state.password === '') {
-            this.setState(() => ({ errorPW: 'Put your Password'}));
+            this.setState(() => ({ errorPW: 'Password is required'}));
         } else {
             this.setState(() => ({ errorID: ''}));
             this.setState(() => ({ errorPW: ''}));
