@@ -5,11 +5,11 @@
 > I'm using ReactJS with Redux and Webpack for the Front-end, and ASP.NET WebAPI is to use for the Back-end side.
 
 ## Main Includes
-* React
-* React-Redux
-* React-router
-* Webpack
-* Axios : To get data by Json through the API calls
+* React 16.2.0
+* React-Redux 5.0.6
+* React-router-dom 16.2.0
+* Webpack 3.10.0
+* Axios 0.17.1 : To get data by Json through the API calls
 * Semantic UI : For design
 * Azure : Published web application for Back-end
 
